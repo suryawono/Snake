@@ -1,0 +1,15 @@
+v1.1
+-added new food : ShrinkPill(can cut off your tail but cost a lot health), RatPoison(just poison food, don't eat this), Spinach(usefull food to heal you)
+-added food limit setting
+-added Help->Control menu
+-added new Grid
+-added pause System
+v1.1b
+-fixed food spawn bug
+-fixed pause system with food spawn
+v1.2
+-remake grid type-3 generating
+-fixed game over pop up when the window is closed
+-now the game using single window
+-added restart option when gameover
+-customable control key
