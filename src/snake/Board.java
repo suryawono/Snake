@@ -32,7 +32,7 @@ import setting.ControlSetting;
  */
 public class Board extends Canvas implements ActionListener {
 
-    public static final String VERSION = "v1.2";
+    public static final String VERSION = "v1.3_Beta01";
     public static Map map;
     public static Player player;
     public static boolean nextKey;

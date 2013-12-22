@@ -4,10 +4,10 @@
  */
 package gui;
 
-import drawer.ImageResources;
 import javax.swing.JTextField;
 import listener.MainFrameListener;
 import listener.TextListener;
+import drawer.ImageResources;
 import setting.ControlSetting;
 import snake.Board;
 
@@ -83,6 +83,9 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
+        dialogFoodStatus = new javax.swing.JDialog();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jLabel16 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuGame = new javax.swing.JMenu();
@@ -91,6 +94,7 @@ public class MainFrame extends javax.swing.JFrame {
         menuControl = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         menuAbout = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
 
         dialogAbout.setTitle("About");
         dialogAbout.setAlwaysOnTop(true);
@@ -101,9 +105,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel6.setText("Credits :");
 
-        jLabel7.setText("Surya Wono - Lead Programmer");
+        jLabel7.setText("Surya Wono -  Programmer");
 
-        jLabel8.setText("Suhendi - Programmer, Texturer");
+        jLabel8.setText("Suhendi - Programmer, Graphic Designer");
 
         javax.swing.GroupLayout dialogAboutLayout = new javax.swing.GroupLayout(dialogAbout.getContentPane());
         dialogAbout.getContentPane().setLayout(dialogAboutLayout);
@@ -134,7 +138,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         dialogSetting.setTitle("Setting");
@@ -453,6 +457,64 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel27.setText("jLabel27");
 
+        dialogFoodStatus.setTitle("Food Status");
+        dialogFoodStatus.setResizable(false);
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Apple",  new Integer(1),  new Integer(1),  new Integer(1)},
+                {"Poison Apple",  new Integer(-1),  new Integer(-1),  new Integer(1)},
+                {"Bacon",  new Integer(5),  new Integer(1),  new Integer(5)},
+                {"Diet Coke",  new Integer(1),  new Integer(-1),  new Integer(0)},
+                {"Candy",  new Integer(10),  new Integer(10),  new Integer(3)},
+                {"Shrink Pill",  new Integer(0),  new Integer(-50),  new Integer(-10)},
+                {"Spinach",  new Integer(5),  new Integer(40),  new Integer(2)},
+                {"Rat Poison",  new Integer(-5),  new Integer(0),  new Integer(-25)}
+            },
+            new String [] {
+                "Name", "Score", "Health", "Length"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setRowSelectionAllowed(false);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getColumn(0).setResizable(false);
+        jTable1.getColumnModel().getColumn(1).setResizable(false);
+        jTable1.getColumnModel().getColumn(2).setResizable(false);
+        jTable1.getColumnModel().getColumn(3).setResizable(false);
+
+        javax.swing.GroupLayout dialogFoodStatusLayout = new javax.swing.GroupLayout(dialogFoodStatus.getContentPane());
+        dialogFoodStatus.getContentPane().setLayout(dialogFoodStatusLayout);
+        dialogFoodStatusLayout.setHorizontalGroup(
+            dialogFoodStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogFoodStatusLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        dialogFoodStatusLayout.setVerticalGroup(
+            dialogFoodStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogFoodStatusLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Snake");
 
@@ -497,6 +559,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         menuHelp.add(menuAbout);
+
+        jMenuItem1.setText("Food Status");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuHelp.add(jMenuItem1);
 
         menuBar.add(menuHelp);
 
@@ -656,6 +726,13 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:                                       
+        dialogFoodStatus.setVisible(true);
+        dialogFoodStatus.setLocation(this.getLocationOnScreen());
+        dialogFoodStatus.setSize(dialogFoodStatus.getPreferredSize());
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -700,6 +777,7 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog dialogAbout;
     private javax.swing.JDialog dialogControl;
+    private javax.swing.JDialog dialogFoodStatus;
     private javax.swing.JDialog dialogSetting;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox jComboBox1;
@@ -732,6 +810,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
