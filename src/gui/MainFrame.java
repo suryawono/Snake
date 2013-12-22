@@ -10,6 +10,7 @@ import listener.TextListener;
 import renderer.ImageResources;
 import setting.ControlSetting;
 import snake.Board;
+import user.User;
 
 /**
  *
@@ -82,19 +83,28 @@ public class MainFrame extends javax.swing.JFrame {
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
-        jLabel27 = new javax.swing.JLabel();
         dialogFoodStatus = new javax.swing.JDialog();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        dialogProfileLogin = new javax.swing.JDialog();
+        jButton2 = new javax.swing.JButton();
+        jLabel27 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jPasswordField = new javax.swing.JPasswordField();
+        dialogProfile = new javax.swing.JDialog();
+        jLabel29 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         menuBar = new javax.swing.JMenuBar();
         menuGame = new javax.swing.JMenu();
         menuStart = new javax.swing.JMenuItem();
         menuSetting = new javax.swing.JMenuItem();
         menuControl = new javax.swing.JMenuItem();
+        menuUser = new javax.swing.JMenu();
+        menuProfile = new javax.swing.JMenuItem();
         menuHelp = new javax.swing.JMenu();
         menuAbout = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        menuFoodStatus = new javax.swing.JMenuItem();
 
         dialogAbout.setTitle("About");
         dialogAbout.setAlwaysOnTop(true);
@@ -455,8 +465,6 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(48, Short.MAX_VALUE))
         );
 
-        jLabel27.setText("jLabel27");
-
         dialogFoodStatus.setTitle("Food Status");
         dialogFoodStatus.setResizable(false);
 
@@ -515,6 +523,78 @@ public class MainFrame extends javax.swing.JFrame {
                 .addContainerGap(12, Short.MAX_VALUE))
         );
 
+        dialogProfileLogin.setTitle("Profile - Login");
+        dialogProfileLogin.setAlwaysOnTop(true);
+        dialogProfileLogin.setResizable(false);
+
+        jButton2.setText("login");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel27.setText("username");
+
+        jLabel28.setText("password");
+
+        javax.swing.GroupLayout dialogProfileLoginLayout = new javax.swing.GroupLayout(dialogProfileLogin.getContentPane());
+        dialogProfileLogin.getContentPane().setLayout(dialogProfileLoginLayout);
+        dialogProfileLoginLayout.setHorizontalGroup(
+            dialogProfileLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogProfileLoginLayout.createSequentialGroup()
+                .addGroup(dialogProfileLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogProfileLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(dialogProfileLoginLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel27)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(dialogProfileLoginLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(jLabel28)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jPasswordField))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        dialogProfileLoginLayout.setVerticalGroup(
+            dialogProfileLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogProfileLoginLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(dialogProfileLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(dialogProfileLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel28)
+                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addContainerGap())
+        );
+
+        dialogProfile.setResizable(false);
+
+        jLabel29.setText("");
+
+        javax.swing.GroupLayout dialogProfileLayout = new javax.swing.GroupLayout(dialogProfile.getContentPane());
+        dialogProfile.getContentPane().setLayout(dialogProfileLayout);
+        dialogProfileLayout.setHorizontalGroup(
+            dialogProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogProfileLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(139, Short.MAX_VALUE))
+        );
+        dialogProfileLayout.setVerticalGroup(
+            dialogProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(dialogProfileLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel29)
+                .addContainerGap(183, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Snake");
 
@@ -550,6 +630,18 @@ public class MainFrame extends javax.swing.JFrame {
 
         menuBar.add(menuGame);
 
+        menuUser.setText("User");
+
+        menuProfile.setText("Profile");
+        menuProfile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuProfileActionPerformed(evt);
+            }
+        });
+        menuUser.add(menuProfile);
+
+        menuBar.add(menuUser);
+
         menuHelp.setText("Help");
 
         menuAbout.setText("About");
@@ -560,13 +652,13 @@ public class MainFrame extends javax.swing.JFrame {
         });
         menuHelp.add(menuAbout);
 
-        jMenuItem1.setText("Food Status");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        menuFoodStatus.setText("Food Status");
+        menuFoodStatus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                menuFoodStatusActionPerformed(evt);
             }
         });
-        menuHelp.add(jMenuItem1);
+        menuHelp.add(menuFoodStatus);
 
         menuBar.add(menuHelp);
 
@@ -586,7 +678,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         pack();
@@ -726,12 +818,26 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void menuFoodStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFoodStatusActionPerformed
         // TODO add your handling code here:                                       
         dialogFoodStatus.setVisible(true);
         dialogFoodStatus.setLocation(this.getLocationOnScreen());
         dialogFoodStatus.setSize(dialogFoodStatus.getPreferredSize());
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_menuFoodStatusActionPerformed
+
+    private void menuProfileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuProfileActionPerformed
+        dialogProfileLogin.setVisible(true);
+        dialogProfileLogin.setSize(dialogProfileLogin.getPreferredSize());
+    }//GEN-LAST:event_menuProfileActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (Board.user.login(jTextField10.getText(), jPasswordField.getText())){
+            dialogProfileLogin.setVisible(false);
+            dialogProfile.setVisible(true);
+            dialogProfile.setSize(dialogProfile.getPreferredSize());
+            jLabel29.setText("Welcome "+Board.user.getName());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -778,8 +884,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JDialog dialogAbout;
     private javax.swing.JDialog dialogControl;
     private javax.swing.JDialog dialogFoodStatus;
+    private javax.swing.JDialog dialogProfile;
+    private javax.swing.JDialog dialogProfileLogin;
     private javax.swing.JDialog dialogSetting;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -801,6 +910,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
@@ -810,10 +921,11 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JTextField jPasswordField;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -825,9 +937,12 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuAbout;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuControl;
+    private javax.swing.JMenuItem menuFoodStatus;
     private javax.swing.JMenu menuGame;
     private javax.swing.JMenu menuHelp;
+    private javax.swing.JMenuItem menuProfile;
     private javax.swing.JMenuItem menuSetting;
     private javax.swing.JMenuItem menuStart;
+    private javax.swing.JMenu menuUser;
     // End of variables declaration//GEN-END:variables
 }
