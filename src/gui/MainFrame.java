@@ -7,7 +7,7 @@ package gui;
 import javax.swing.JTextField;
 import listener.MainFrameListener;
 import listener.TextListener;
-import drawer.ImageResources;
+import renderer.ImageResources;
 import setting.ControlSetting;
 import snake.Board;
 

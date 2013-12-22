@@ -4,10 +4,10 @@
  */
 package snake;
 
-import drawer.FoodD;
-import drawer.ImageResources;
-import drawer.ObstacleD;
-import drawer.SnakeD;
+import renderer.FoodD;
+import renderer.ImageResources;
+import renderer.ObstacleD;
+import renderer.SnakeD;
 import food.util.FoodContainer;
 import grid.ObstacleContainer;
 import java.awt.Canvas;

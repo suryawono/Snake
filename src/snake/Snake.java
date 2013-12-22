@@ -6,7 +6,7 @@ package snake;
 
 import base.Coordinate;
 import base.Unit;
-import drawer.SnakeD;
+import renderer.SnakeD;
 import food.Food;
 import java.util.ArrayList;
 
