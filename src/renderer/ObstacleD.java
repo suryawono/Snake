@@ -20,7 +20,7 @@ public class ObstacleD {
         g.setColor(Color.black);
         for (int i = 0; i < x.length; i++) {
             if (ImageResources.I_O_SPIKE != null) {
-                g.drawImage(ImageResources.I_O_SPIKE ,x[i] * dotSize, y[i] * dotSize, null);
+                g.drawImage(ImageResources.I_O_SPIKE, x[i] * dotSize, y[i] * dotSize, dotSize, dotSize, null);
             } else {
                 g.drawLine(x[i] * dotSize, y[i] * dotSize, x[i] * dotSize + dotSize, y[i] * dotSize + dotSize);
                 g.drawLine(x[i] * dotSize, y[i] * dotSize + dotSize, x[i] * dotSize + dotSize, y[i] * dotSize);

@@ -462,7 +462,8 @@ public class MainFrame extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"Apple",  new Integer(1),  new Integer(1),  new Integer(1)},
+                {"Apple",  new Integer(1),  new Integer(5),  new Integer(1)},
+                {"Banana",  new Integer(2),  new Integer(1), null},
                 {"Poison Apple",  new Integer(-1),  new Integer(-1),  new Integer(1)},
                 {"Bacon",  new Integer(5),  new Integer(1),  new Integer(5)},
                 {"Diet Coke",  new Integer(1),  new Integer(-1),  new Integer(0)},
@@ -511,8 +512,8 @@ public class MainFrame extends javax.swing.JFrame {
             dialogFoodStatusLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dialogFoodStatusLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(12, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);

@@ -42,6 +42,7 @@ public class ImageResources {
     public static BufferedImage I_T_LU;
     public static BufferedImage I_T_UR;
     public static BufferedImage I_F_APPLE;
+    public static BufferedImage I_F_BANANA;
     public static BufferedImage I_F_POISONAPPLE;
     public static BufferedImage I_F_BACON;
     public static BufferedImage I_F_DIETCOKE;
@@ -115,6 +116,8 @@ public class ImageResources {
         folder = "/resources/picture/food/";
         resource = a.getClass().getResource(folder + "Apple.png");
         I_F_APPLE = ImageIO.read(resource);
+        resource = a.getClass().getResource(folder + "Banana.png");
+        I_F_BANANA = ImageIO.read(resource);
         resource = a.getClass().getResource(folder + "Poisonous Apple.png");
         I_F_POISONAPPLE = ImageIO.read(resource);
         resource = a.getClass().getResource(folder + "Bacon.png");
@@ -239,4 +242,6 @@ public class ImageResources {
         g.drawImage(img, null, 0, 0);
         return dimg;
     }
+    
+    
 }

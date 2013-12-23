@@ -17,8 +17,8 @@ import snake.Board;
  */
 public class FoodBuilder {
 
-    //score=1   grow=1      chance=17   time=3500   health=1
-    public static final int F_APPLE = 1;       
+    //score=1   grow=1      chance=17   time=3500   health=5
+    public static final int F_APPLE = 1;   
     //score=-1  grow=1      chance=10   time=7500   health=-5
     public static final int F_POISONAPPLE = 2; 
     //score=5   grow=5      chance=5    time=2500   health=5
@@ -32,7 +32,9 @@ public class FoodBuilder {
     //score=5   grow=2    chance=5    time=3500    health=40
     public static final int F_SPINACH = 7;
     //score=-5   grow=0    chance=7    time=2500    health=-25
-    public static final int F_RAT_POISON = 8;
+    public static final int F_RAT_POISON = 8;     
+    //score=2   grow=1      chance=17   time=3500   health=1
+    public static final int F_BANANA = 9;  
     /*
      * How to add new Food? make the class and extends Food then add the food
      * code here, add case at makeFood method, change static variable TOTAL_TYPE
@@ -68,6 +70,9 @@ public class FoodBuilder {
                 break;
             case F_RAT_POISON:
                 food = new RatPoison();
+                break;
+            case F_BANANA:
+                food = new Banana();
                 break;
             default:
                 food = new Food();

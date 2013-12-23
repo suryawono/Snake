@@ -17,6 +17,8 @@ public class FoodD {
     public static void drawFood(Graphics g, Food food, int dotSize) {
         if (food instanceof Apple) {
             drawApple(g, (Apple) food, dotSize);
+        } else if (food instanceof Banana) {
+            drawBanana(g, (Banana) food, dotSize);
         } else if (food instanceof PoisonApple) {
             drawPoisonApple(g, (PoisonApple) food, dotSize);
         } else if (food instanceof Bacon) {
@@ -38,9 +40,20 @@ public class FoodD {
         int x = apple.coor.getSmallestX();
         int y = apple.coor.getSmallestY();
         if (ImageResources.I_F_APPLE != null) {
-            g.drawImage(ImageResources.I_F_APPLE, x * dotSize, y* dotSize, null);
+            g.drawImage(ImageResources.I_F_APPLE, x * dotSize, y * dotSize, dotSize, dotSize, null);
         } else {
             g.setColor(Color.red);
+            g.fillOval(x * dotSize, y * dotSize, dotSize, dotSize);
+        }
+    }
+
+    public static void drawBanana(Graphics g, Banana banana, int dotSize) {
+        int x = banana.coor.getSmallestX();
+        int y = banana.coor.getSmallestY();
+        if (ImageResources.I_F_BANANA != null) {
+            g.drawImage(ImageResources.I_F_BANANA, x * dotSize, y * dotSize, dotSize, dotSize, null);
+        } else {
+            g.setColor(Color.yellow);
             g.fillOval(x * dotSize, y * dotSize, dotSize, dotSize);
         }
     }
@@ -49,7 +62,7 @@ public class FoodD {
         int x = poisonApple.coor.getSmallestX();
         int y = poisonApple.coor.getSmallestY();
         if (ImageResources.I_F_POISONAPPLE != null) {
-            g.drawImage(ImageResources.I_F_POISONAPPLE,x * dotSize, y * dotSize, null);
+            g.drawImage(ImageResources.I_F_POISONAPPLE, x * dotSize, y * dotSize, dotSize, dotSize, null);
         } else {
             g.setColor(Color.green);
             g.fillOval(x * dotSize, y * dotSize, dotSize, dotSize);
@@ -60,7 +73,7 @@ public class FoodD {
         int x = bacon.coor.getSmallestX();
         int y = bacon.coor.getSmallestY();
         if (ImageResources.I_F_BACON != null) {
-            g.drawImage(ImageResources.I_F_BACON, x * dotSize, y * dotSize, null);
+            g.drawImage(ImageResources.I_F_BACON, x * dotSize, y * dotSize, dotSize * 2, dotSize, null);
         } else {
             g.setColor(Color.yellow);
             g.fillOval(x * dotSize, y * dotSize, dotSize * 2, dotSize);
@@ -71,7 +84,7 @@ public class FoodD {
         int x = dietCoke.coor.getSmallestX();
         int y = dietCoke.coor.getSmallestY();
         if (ImageResources.I_F_DIETCOKE != null) {
-            g.drawImage(ImageResources.I_F_DIETCOKE, x * dotSize, y * dotSize, null);
+            g.drawImage(ImageResources.I_F_DIETCOKE, x * dotSize, y * dotSize, dotSize, dotSize, null);
         } else {
             g.setColor(new Color(255, 178, 86));
             g.fillOval(x * dotSize, y * dotSize, dotSize, dotSize);
@@ -82,10 +95,10 @@ public class FoodD {
         int x = candy.coor.getSmallestX();
         int y = candy.coor.getSmallestY();
         if (ImageResources.I_F_CANDY != null) {
-            g.drawImage(ImageResources.I_F_CANDY, x * dotSize, y * dotSize, null);
+            g.drawImage(ImageResources.I_F_CANDY, x * dotSize, y * dotSize, dotSize, dotSize, null);
         } else {
             g.setColor(Color.PINK);
-            g.fillOval(x* dotSize, y * dotSize, dotSize, dotSize);
+            g.fillOval(x * dotSize, y * dotSize, dotSize, dotSize);
         }
     }
 
@@ -93,7 +106,7 @@ public class FoodD {
         int x = shrinkPill.coor.getSmallestX();
         int y = shrinkPill.coor.getSmallestY();
         if (ImageResources.I_F_SHRINKPILL != null) {
-            g.drawImage(ImageResources.I_F_SHRINKPILL, x * dotSize, y * dotSize, null);
+            g.drawImage(ImageResources.I_F_SHRINKPILL, x * dotSize, y * dotSize, dotSize, dotSize, null);
         } else {
             g.setColor(Color.CYAN);
             g.fillOval(x * dotSize, y * dotSize, dotSize * 2, dotSize);
@@ -104,7 +117,7 @@ public class FoodD {
         int x = spinach.coor.getSmallestX();
         int y = spinach.coor.getSmallestY();
         if (ImageResources.I_F_SPINACH != null) {
-            g.drawImage(ImageResources.I_F_SPINACH, x * dotSize, y * dotSize, null);
+            g.drawImage(ImageResources.I_F_SPINACH, x * dotSize, y * dotSize, dotSize, dotSize, null);
         } else {
             g.setColor(Color.orange);
             g.fillOval(x * dotSize, y * dotSize, dotSize, dotSize);
@@ -115,10 +128,10 @@ public class FoodD {
         int x = ratpoison.coor.getSmallestX();
         int y = ratpoison.coor.getSmallestY();
         if (ImageResources.I_F_RAT_POISON != null) {
-            g.drawImage(ImageResources.I_F_RAT_POISON, x * dotSize, y * dotSize, null);
+            g.drawImage(ImageResources.I_F_RAT_POISON, x * dotSize, y * dotSize, dotSize, dotSize, null);
         } else {
             g.setColor(Color.darkGray);
-            g.fillOval(x * dotSize, y* dotSize, dotSize, dotSize);
+            g.fillOval(x * dotSize, y * dotSize, dotSize, dotSize);
         }
     }
 }

@@ -9,12 +9,12 @@ import food.util.FoodSetting;
 
 /**
  *
- * @author SunFlower
+ * @author Quantum
  */
-public class ShrinkPill extends Food {
-
-    public ShrinkPill() {
-        super(new Coordinate(),FoodSetting.F_SHRINKPILL_TIME,FoodSetting.F_SHRINKPILL_CHANCE,FoodSetting.F_SHRINKPILL_VALUE,FoodSetting.F_SHRINKPILL_FAT,FoodSetting.F_SHRINKPILL_HEALTH);
+public class Banana extends Food{
+    
+    public Banana(){
+        super(new Coordinate(),FoodSetting.F_BANANA_TIME,FoodSetting.F_BANANA_CHANCE,FoodSetting.F_BANANA_VALUE,FoodSetting.F_BANANA_FAT,FoodSetting.F_BANANA_HEALTH);
     }
     
     @Override

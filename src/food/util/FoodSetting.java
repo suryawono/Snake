@@ -14,7 +14,12 @@ public class FoodSetting {
     public static int F_APPLE_CHANCE = 17;
     public static int F_APPLE_VALUE = 1;
     public static int F_APPLE_FAT = 1;
-    public static int F_APPLE_HEALTH = 1;
+    public static int F_APPLE_HEALTH = 5;
+    public static int F_BANANA_TIME = 5000;
+    public static int F_BANANA_CHANCE = 15;
+    public static int F_BANANA_VALUE = 2;
+    public static int F_BANANA_FAT = 1;
+    public static int F_BANANA_HEALTH = 1;
     public static int F_POISONAPPLE_TIME = 7500;
     public static int F_POISONAPPLE_CHANCE = 10;
     public static int F_POISONAPPLE_VALUE = -1;

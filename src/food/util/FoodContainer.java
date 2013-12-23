@@ -18,7 +18,7 @@ import snake.Snake;
  */
 public class FoodContainer extends Thread {
 
-    private static final int TOTAL_TYPE = 8;
+    private static final int TOTAL_TYPE = 9;
     private ArrayList<Food> container;
     private LifeTimeHandler lth;
     private int foodLimit;

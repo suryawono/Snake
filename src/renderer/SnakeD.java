@@ -66,70 +66,62 @@ public class SnakeD {
         y *= dotSize;
         switch (type) {
             case T_HEAD_FACERIGHT:
-                g.drawImage(ImageResources.I_T_HEAD_FACERIGHT, x, y, null);
+                g.drawImage(ImageResources.I_T_HEAD_FACERIGHT, x, y, dotSize, dotSize, null);
                 break;
             case T_HEAD_FACEDOWN:
-                g.drawImage(ImageResources.I_T_HEAD_FACEDOWN, x, y, null);
+                g.drawImage(ImageResources.I_T_HEAD_FACEDOWN, x, y, dotSize, dotSize, null);
                 break;
             case T_HEAD_FACELEFT:
-                g.drawImage(ImageResources.I_T_HEAD_FACELEFT, x, y, null);
+                g.drawImage(ImageResources.I_T_HEAD_FACELEFT, x, y, dotSize, dotSize, null);
                 break;
             case T_HEAD_FACEUP:
-                g.drawImage(ImageResources.I_T_HEAD_FACEUP, x, y, null);
+                g.drawImage(ImageResources.I_T_HEAD_FACEUP, x, y, dotSize, dotSize, null);
                 break;
             case T_H:
-                if (ImageResources.stated) {
-                    g.drawImage(ImageResources.I_T_H, x, y, null);
-                } else {
-                    g.drawImage(ImageResources.I_T_H_STATED, x, y, null);
-                }
-                
+                g.drawImage(ImageResources.I_T_H, x, y, dotSize, dotSize, null);
                 break;
             case T_V:
-                if (ImageResources.stated) {
-                    g.drawImage(ImageResources.I_T_V, x, y, null);
-                } else {
-                    g.drawImage(ImageResources.I_T_V_STATED, x, y, null);
-                }
+                g.drawImage(ImageResources.I_T_V, x, y, dotSize, dotSize, null);
+
                 break;
             case T_RD:
-                g.drawImage(ImageResources.I_T_RD, x, y, null);
+                g.drawImage(ImageResources.I_T_RD, x, y, dotSize, dotSize, null);
                 break;
             case T_DL:
-                g.drawImage(ImageResources.I_T_DL, x, y, null);
+                g.drawImage(ImageResources.I_T_DL, x, y, dotSize, dotSize, null);
                 break;
             case T_LU:
-                g.drawImage(ImageResources.I_T_LU, x, y, null);
+                g.drawImage(ImageResources.I_T_LU, x, y, dotSize, dotSize, null);
                 break;
             case T_UR:
-                g.drawImage(ImageResources.I_T_UR, x, y, null);
+                g.drawImage(ImageResources.I_T_UR, x, y, dotSize, dotSize, null);
                 break;
             case T_TAIL_RIGHT:
                 if (ImageResources.stated) {
-                    g.drawImage(ImageResources.I_T_TAIL_RIGHT, x, y, null);
+                    g.drawImage(ImageResources.I_T_TAIL_RIGHT, x, y, dotSize, dotSize, null);
                 } else {
-                    g.drawImage(ImageResources.I_T_TAIL_RIGHT_STATED, x, y, null);
+                    g.drawImage(ImageResources.I_T_TAIL_RIGHT_STATED, x, y, dotSize, dotSize, null);
                 }
                 break;
             case T_TAIL_DOWN:
                 if (ImageResources.stated) {
-                    g.drawImage(ImageResources.I_T_TAIL_DOWN, x, y, null);
+                    g.drawImage(ImageResources.I_T_TAIL_DOWN, x, y, dotSize, dotSize, null);
                 } else {
-                    g.drawImage(ImageResources.I_T_TAIL_DOWN_STATED, x, y, null);
+                    g.drawImage(ImageResources.I_T_TAIL_DOWN_STATED, x, y, dotSize, dotSize, null);
                 }
                 break;
             case T_TAIL_LEFT:
                 if (ImageResources.stated) {
-                    g.drawImage(ImageResources.I_T_TAIL_LEFT, x, y, null);
+                    g.drawImage(ImageResources.I_T_TAIL_LEFT, x, y, dotSize, dotSize, null);
                 } else {
-                    g.drawImage(ImageResources.I_T_TAIL_LEFT_STATED, x, y, null);
+                    g.drawImage(ImageResources.I_T_TAIL_LEFT_STATED, x, y, dotSize, dotSize, null);
                 }
                 break;
             case T_TAIL_UP:
                 if (ImageResources.stated) {
-                    g.drawImage(ImageResources.I_T_TAIL_UP, x, y, null);
+                    g.drawImage(ImageResources.I_T_TAIL_UP, x, y, dotSize, dotSize, null);
                 } else {
-                    g.drawImage(ImageResources.I_T_TAIL_UP_STATED, x, y, null);
+                    g.drawImage(ImageResources.I_T_TAIL_UP_STATED, x, y, dotSize, dotSize, null);
                 }
                 break;
         }
