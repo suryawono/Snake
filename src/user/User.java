@@ -17,7 +17,7 @@ import java.util.logging.Logger;
  * @author Surya Wono
  */
 public class User {
-    private int id_user;
+    private int id_user=0;
     private String username;
     private String name;
     
@@ -36,11 +36,12 @@ public class User {
                 this.id_user=result.getInt("id_user");
                 this.username=result.getString("username");
                 this.name=result.getString("name");
+                return true;
             }
         } catch (SQLException ex) {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return true;
+        return false;
     }
 
     public int getId_user() {

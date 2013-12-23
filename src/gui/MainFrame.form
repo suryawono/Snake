@@ -698,17 +698,16 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jButton2" alignment="1" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel27" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jTextField10" min="-2" pref="106" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
                               <Component id="jLabel28" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="jPasswordField" max="32767" attributes="0"/>
@@ -761,6 +760,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="jPasswordField">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jPasswordFieldKeyReleased"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JPasswordField()"/>
           </AuxValues>
@@ -769,6 +771,7 @@
     </Container>
     <Container class="javax.swing.JDialog" name="dialogProfile">
       <Properties>
+        <Property name="title" type="java.lang.String" value="Profile"/>
         <Property name="resizable" type="boolean" value="false"/>
       </Properties>
 
@@ -780,6 +783,11 @@
                   <Component id="jLabel29" min="-2" pref="139" max="-2" attributes="0"/>
                   <EmptySpace pref="139" max="32767" attributes="0"/>
               </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="buttonLogout" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -787,7 +795,9 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel29" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="183" max="32767" attributes="0"/>
+                  <EmptySpace pref="149" max="32767" attributes="0"/>
+                  <Component id="buttonLogout" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -799,6 +809,14 @@
               <Connection code="&quot;&quot;" type="code"/>
             </Property>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="buttonLogout">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Logout"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLogoutActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -883,6 +901,7 @@
   <SyntheticProperties>
     <SyntheticProperty name="menuBar" type="java.lang.String" value="menuBar"/>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
