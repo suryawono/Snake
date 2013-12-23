@@ -4,13 +4,14 @@
  */
 package gui;
 
+import gamemode.GameModeSetting;
+import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import listener.MainFrameListener;
 import listener.TextListener;
 import renderer.ImageResources;
 import setting.ControlSetting;
 import snake.Board;
-import user.User;
 
 /**
  *
@@ -50,13 +51,13 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         dialogSetting = new javax.swing.JDialog();
         jLabel9 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        textSnakeLength = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
+        comboBoxMapType = new javax.swing.JComboBox();
         jLabel5 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        textHorizontalTile = new javax.swing.JTextField();
+        textVerticalTile = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -66,7 +67,10 @@ public class MainFrame extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        textFoodLimit = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox();
         dialogControl = new javax.swing.JDialog();
         jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -157,33 +161,36 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel9.setText("Snake Option");
 
-        jTextField3.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-        jTextField3.setText("3");
+        textSnakeLength.setEditable(false);
+        textSnakeLength.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        textSnakeLength.setText("3");
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel10.setText("Map Option");
 
         jLabel11.setText(":");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        comboBoxMapType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "1", "2", "3", "4", "5" }));
+        comboBoxMapType.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                comboBoxMapTypeActionPerformed(evt);
             }
         });
 
         jLabel5.setText("Map Type");
 
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-        jTextField1.setText("45");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textHorizontalTile.setEditable(false);
+        textHorizontalTile.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        textHorizontalTile.setText("45");
+        textHorizontalTile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textHorizontalTileActionPerformed(evt);
             }
         });
 
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
-        jTextField2.setText("35");
+        textVerticalTile.setEditable(false);
+        textVerticalTile.setHorizontalAlignment(javax.swing.JTextField.TRAILING);
+        textVerticalTile.setText("35");
 
         jLabel12.setText(":");
 
@@ -208,11 +215,22 @@ public class MainFrame extends javax.swing.JFrame {
 
         jLabel18.setText(":");
 
-        jTextField4.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        jTextField4.setText("10");
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        textFoodLimit.setEditable(false);
+        textFoodLimit.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        textFoodLimit.setText("10");
+        textFoodLimit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                textFoodLimitActionPerformed(evt);
+            }
+        });
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel30.setText("Game Mode");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Standard", "FoodMania", "HardCore", "Custom" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
             }
         });
 
@@ -223,87 +241,115 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(dialogSettingLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSettingLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addContainerGap())
                     .addGroup(dialogSettingLayout.createSequentialGroup()
                         .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(dialogSettingLayout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel31))
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)
                             .addGroup(dialogSettingLayout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel12)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(48, 48, 48)
+                                .addComponent(textSnakeLength, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(85, 85, 85)
                         .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSettingLayout.createSequentialGroup()
-                                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 183, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(dialogSettingLayout.createSequentialGroup()
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(dialogSettingLayout.createSequentialGroup()
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(dialogSettingLayout.createSequentialGroup()
-                                .addComponent(jLabel10)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(dialogSettingLayout.createSequentialGroup()
+                                        .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(dialogSettingLayout.createSequentialGroup()
+                                                .addGap(173, 173, 173)
+                                                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(dialogSettingLayout.createSequentialGroup()
+                                                .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addGap(12, 12, 12)))
+                                        .addComponent(textFoodLimit, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(dialogSettingLayout.createSequentialGroup()
+                                        .addComponent(jLabel10)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSettingLayout.createSequentialGroup()
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGap(67, 67, 67)))
+                                .addGap(21, 21, 21))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSettingLayout.createSequentialGroup()
                                 .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jComboBox1, 0, 45, Short.MAX_VALUE)
-                                    .addComponent(jTextField4))))
-                        .addGap(21, 21, 21))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSettingLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1)
-                        .addContainerGap())))
+                                    .addGroup(dialogSettingLayout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(textHorizontalTile, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(dialogSettingLayout.createSequentialGroup()
+                                        .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addGroup(dialogSettingLayout.createSequentialGroup()
+                                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addGroup(dialogSettingLayout.createSequentialGroup()
+                                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(textVerticalTile, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGroup(dialogSettingLayout.createSequentialGroup()
+                                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 6, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(comboBoxMapType, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(23, 23, 23))))))
         );
         dialogSettingLayout.setVerticalGroup(
             dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(dialogSettingLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
+                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel30)
+                        .addComponent(jLabel31)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel13)
-                        .addComponent(jLabel12)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel14)
-                        .addComponent(jLabel3)))
-                .addGap(9, 9, 9)
-                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(textHorizontalTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel14)
+                            .addComponent(jLabel3)))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel11))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(jLabel18)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(dialogSettingLayout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel12)
+                            .addComponent(textSnakeLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(58, 58, 58))
+                    .addGroup(dialogSettingLayout.createSequentialGroup()
+                        .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(textVerticalTile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel15))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(comboBoxMapType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel17)
+                            .addGroup(dialogSettingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel18)
+                                .addComponent(textFoodLimit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(39, 39, 39)))
                 .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         dialogSetting.getAccessibleContext().setAccessibleParent(null);
@@ -716,19 +762,20 @@ public class MainFrame extends javax.swing.JFrame {
         dialogAbout.setSize(dialogAbout.getPreferredSize());
     }//GEN-LAST:event_menuAboutActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void textHorizontalTileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textHorizontalTileActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_textHorizontalTileActionPerformed
 
     private void menuStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuStartActionPerformed
-        int width = Integer.parseInt(jTextField1.getText());
-        int height = Integer.parseInt(jTextField2.getText());
-        int length = Integer.parseInt(jTextField3.getText());
-        int foodLimit = Integer.parseInt(jTextField4.getText());
+        int width = Integer.parseInt(textHorizontalTile.getText());
+        int height = Integer.parseInt(textVerticalTile.getText());
+        int length = Integer.parseInt(textSnakeLength.getText());
+        int foodLimit = Integer.parseInt(textFoodLimit.getText());
         if ((width >= 20) && (height >= 10) && (length >= 3)) {
             this.settingGame(width, height, length, foodLimit);
+            Board.gameMode = GameModeSetting.currentGameModeID;
             this.setFocusable(false);
-            this.startGame(Integer.parseInt(jComboBox1.getItemAt(jComboBox1.getSelectedIndex()).toString()));
+            this.startGame(Integer.parseInt(comboBoxMapType.getItemAt(comboBoxMapType.getSelectedIndex()).toString()));
         }
     }//GEN-LAST:event_menuStartActionPerformed
 
@@ -740,13 +787,13 @@ public class MainFrame extends javax.swing.JFrame {
         dialogControl.setVisible(true);
         dialogControl.setLocation(this.getLocationOnScreen());
         dialogControl.setSize(dialogControl.getPreferredSize());
-        JTextField[] j={jTextField5,jTextField6,jTextField7,jTextField8,jTextField9};
+        JTextField[] j = {jTextField5, jTextField6, jTextField7, jTextField8, jTextField9};
         TextListener.loadControlText(j);
     }//GEN-LAST:event_menuControlActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void textFoodLimitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_textFoodLimitActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_textFoodLimitActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
@@ -808,16 +855,16 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField8KeyPressed
 
     private void jTextField7KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField7KeyPressed
-       jTextField7.setText("");
+        jTextField7.setText("");
     }//GEN-LAST:event_jTextField7KeyPressed
 
     private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField9ActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void comboBoxMapTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxMapTypeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_comboBoxMapTypeActionPerformed
 
     private void menuFoodStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFoodStatusActionPerformed
         // TODO add your handling code here:                                       
@@ -832,13 +879,51 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_menuProfileActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (Board.user.login(jTextField10.getText(), jPasswordField.getText())){
+        if (Board.user.login(jTextField10.getText(), jPasswordField.getText())) {
             dialogProfileLogin.setVisible(false);
             dialogProfile.setVisible(true);
             dialogProfile.setSize(dialogProfile.getPreferredSize());
-            jLabel29.setText("Welcome "+Board.user.getName());
+            jLabel29.setText("Welcome " + Board.user.getName());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        JComboBox cb = (JComboBox) evt.getSource();
+        String name = (String) cb.getSelectedItem();
+        this.comboBoxMapType.setEditable(false);
+        if (!"Custom".equals(name)) {
+            this.textHorizontalTile.setEditable(false);
+            this.textVerticalTile.setEditable(false);
+            this.textFoodLimit.setEditable(false);
+            this.textSnakeLength.setEditable(false);
+        } else {
+            this.textHorizontalTile.setEditable(true);
+            this.textVerticalTile.setEditable(true);
+            this.textFoodLimit.setEditable(true);
+            this.textSnakeLength.setEditable(true);
+            GameModeSetting.currentGameModeID = 0;
+        }
+        if (GameModeSetting.GM_STANDARD_IDENTIFIER.equals(name)) {
+            this.textHorizontalTile.setText("" + GameModeSetting.GM_STANDARD_HORIZONTALTILE);
+            this.textVerticalTile.setText("" + GameModeSetting.GM_STANDARD_VERTICALTILE);
+            this.textSnakeLength.setText("" + GameModeSetting.GM_STANDARD_SNAKELENGTH);
+            this.textFoodLimit.setText("" + GameModeSetting.GM_STANDARD_FOODLIMIT);
+            GameModeSetting.currentGameModeID = GameModeSetting.GM_STANDARD_ID;
+        } else if (GameModeSetting.GM_FOODMANIA_IDENTIFIER.equals(name)) {
+            this.textHorizontalTile.setText("" + GameModeSetting.GM_FOODMANIA_HORIZONTALTILE);
+            this.textVerticalTile.setText("" + GameModeSetting.GM_FOODMANIA_VERTICALTILE);
+            this.textSnakeLength.setText("" + GameModeSetting.GM_FOODMANIA_SNAKELENGTH);
+            this.textFoodLimit.setText("" + GameModeSetting.GM_FOODMANIA_FOODLIMIT);
+            GameModeSetting.currentGameModeID = GameModeSetting.GM_FOODMANIA_ID;
+        } else if (GameModeSetting.GM_HARDCORE_IDENTIFIER.equals(name)) {
+            this.textHorizontalTile.setText("" + GameModeSetting.GM_HARDCORE_HORIZONTALTILE);
+            this.textVerticalTile.setText("" + GameModeSetting.GM_HARDCORE_VERTICALTILE);
+            this.textSnakeLength.setText("" + GameModeSetting.GM_HARDCORE_SNAKELENGTH);
+            this.textFoodLimit.setText("" + GameModeSetting.GM_HARDCORE_FOODLIMIT);
+            GameModeSetting.currentGameModeID = GameModeSetting.GM_HARDCORE_ID;
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -875,13 +960,13 @@ public class MainFrame extends javax.swing.JFrame {
          * Create and display the form
          */
         java.awt.EventQueue.invokeLater(new Runnable() {
-
             public void run() {
                 new MainFrame().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox comboBoxMapType;
     private javax.swing.JDialog dialogAbout;
     private javax.swing.JDialog dialogControl;
     private javax.swing.JDialog dialogFoodStatus;
@@ -890,7 +975,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JDialog dialogSetting;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -914,6 +999,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
@@ -925,11 +1012,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTextField jPasswordField;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
@@ -945,5 +1028,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuSetting;
     private javax.swing.JMenuItem menuStart;
     private javax.swing.JMenu menuUser;
+    private javax.swing.JTextField textFoodLimit;
+    private javax.swing.JTextField textHorizontalTile;
+    private javax.swing.JTextField textSnakeLength;
+    private javax.swing.JTextField textVerticalTile;
     // End of variables declaration//GEN-END:variables
 }

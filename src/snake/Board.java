@@ -4,11 +4,8 @@
  */
 package snake;
 
-import renderer.FoodD;
-import renderer.ImageResources;
-import renderer.ObstacleD;
-import renderer.SnakeD;
 import food.util.FoodContainer;
+import gamemode.GameModeSetting;
 import grid.ObstacleContainer;
 import java.awt.Canvas;
 import java.awt.Color;
@@ -24,6 +21,10 @@ import javax.swing.Timer;
 import listener.SnakeListener;
 import map.Map;
 import player.Player;
+import renderer.FoodD;
+import renderer.ImageResources;
+import renderer.ObstacleD;
+import renderer.SnakeD;
 import setting.ControlSetting;
 import user.User;
 
@@ -41,7 +42,8 @@ public class Board extends Canvas implements ActionListener {
     public static int maxX;
     public static int maxY;
     public static boolean pause = false;
-    public static User user=new User();
+    public static User user = new User();
+    public static int gameMode = 1;
     public SnakeListener listener;
     private final int TILE_SIZE = 16;
     private Timer timer;
@@ -53,7 +55,7 @@ public class Board extends Canvas implements ActionListener {
     private int startX;
     private int startY;
     private int lastGrid;
-    
+
     public Board() {
         load();
         startX = 0;
@@ -103,7 +105,7 @@ public class Board extends Canvas implements ActionListener {
         foodContainer = new FoodContainer(Setting.foodLimit, snake);
         obstacleContainer = new ObstacleContainer();
         map.addUnit(snake);
-        pause=false;
+        pause = false;
     }
 
     public void stopGame() {
@@ -174,7 +176,7 @@ public class Board extends Canvas implements ActionListener {
             nextKey = true;
         } else {
             Graphics g = scoreBoard.getGraphics();
-            g.drawImage(new PauseSplash(), (maxX-1)*TILE_SIZE/2,1, null);
+            g.drawImage(new PauseSplash(), (maxX - 1) * TILE_SIZE / 2, 1, null);
             repaint();
         }
     }
@@ -197,5 +199,6 @@ public class Board extends Canvas implements ActionListener {
         g.setColor(Color.BLACK);
         g.drawString("Score: " + player.getValue(), 0, 12);
         g.drawImage(snake.health, 100, 0, null);
+        g.drawString(GameModeSetting.IDENTIFIER[gameMode], maxX * TILE_SIZE - 50, 12);
     }
 }
