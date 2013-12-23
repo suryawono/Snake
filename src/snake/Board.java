@@ -25,6 +25,7 @@ import listener.SnakeListener;
 import map.Map;
 import player.Player;
 import setting.ControlSetting;
+import user.User;
 
 /**
  *
@@ -40,6 +41,7 @@ public class Board extends Canvas implements ActionListener {
     public static int maxX;
     public static int maxY;
     public static boolean pause = false;
+    public static User user=new User();
     public SnakeListener listener;
     private final int TILE_SIZE = 16;
     private Timer timer;
@@ -51,7 +53,7 @@ public class Board extends Canvas implements ActionListener {
     private int startX;
     private int startY;
     private int lastGrid;
-
+    
     public Board() {
         load();
         startX = 0;
