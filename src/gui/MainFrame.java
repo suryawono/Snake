@@ -471,7 +471,7 @@ public class MainFrame extends javax.swing.JFrame {
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {"Apple",  new Integer(1),  new Integer(5),  new Integer(1)},
-                {"Banana",  new Integer(2),  new Integer(1), null},
+                {"Banana",  new Integer(2),  new Integer(1),  new Integer(1)},
                 {"Poison Apple",  new Integer(-1),  new Integer(-1),  new Integer(1)},
                 {"Bacon",  new Integer(5),  new Integer(1),  new Integer(5)},
                 {"Diet Coke",  new Integer(1),  new Integer(-1),  new Integer(0)},
